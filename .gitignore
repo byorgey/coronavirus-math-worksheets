@@ -1,0 +1,11 @@
+*~
+
+stack.yaml.lock
+.stack-work/
+.diagrams_cache/
+diagrams/
+*.aux
+*.log
+*.out
+*.pdf
+
