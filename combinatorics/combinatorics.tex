@@ -1,0 +1,84 @@
+% -*- compile-command: "stack exec --package diagrams-lib --package diagrams-pgf --package diagrams-contrib --package diagrams-builder --package palette -- pdflatex --enable-write18 combinatorics.tex" -*-
+
+\documentclass{article}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath}
+
+\usepackage[outputdir=diagrams, extension=pgf, backend=pgf, input]{diagrams-latex}
+\usepackage{pgf}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Counting}
+\author{Brent Yorgey, \href{http://www.mathlesstraveled.com}{\texttt{mathlesstraveled.com}} \\ \raisebox{-0.4em}{\includegraphics[width=44px]{../CC-BY.png}} \href{http://creativecommons.org/licenses/by/4.0/}{\texttt{creativecommons.org/licenses/by/4.0/}}}
+
+\begin{document}
+
+\maketitle
+
+\fontsize{16}{20}\selectfont
+
+\begin{enumerate}
+\item For breakfast you can have either oatmeal or cereal.  On top,
+  you can have either blueberries, strawberries, or blackberries (you
+  have to choose exactly one kind of fruit).  What are all the
+  different breakfasts you could choose?  How many diffferent
+  breakfasts are there?
+
+  \newpage
+\item What if you could also choose to have no fruit?  How many
+  different breakfasts would there be now? \vspace{2in}
+
+\item Now suppose you can still choose either oatmeal or cereal, but
+  there are now seven different fruit choices (banana, pomegranate,
+  strawberry, blueberry, blackberry, raspberry, or tomato).  You get
+  to choose exactly one fruit, or you can have no fruit.  How many
+  different breakfasts can you choose? \vspace{2in}
+
+\newpage
+\item What if you could choose cereal, oatmeal, or cream of wheat, and
+  you have the same fruit choices as before?  How many different
+  breakfast combinations are there now? \vspace{1in}
+
+\newpage
+\item For lunch you are going to eat a sandwich and some fruit, but
+  let's forget about the sandwich for now.  Suppose there are two
+  types of fruit: grapes and apples.  If you have to choose one fruit
+  then of course there are two different lunches you could have.  But
+  being limited to only one kind of fruit is boring!  For lunch, you
+  can choose any combination of fruits you want: you could have no
+  fruit, or you could choose one fruit, or you could have both.  How
+  many different lunch choices do you have?
+
+\newpage
+\item Now suppose there are three kinds of fruit: grapes, apples, and
+  oranges.  Again, you can choose any fruits you want.  How many
+  different lunch choices do you have? What are they? \vspace{2in}
+
+\item What if there are four kinds of fruit (grapes, apples, oranges,
+  and dragonfruit)?  How many lunch choices do you have now?
+
+
+\newpage
+\item Remember your sandwich?  To make a sandwich you need bread,
+  cheese, meat, and toppings.
+  \begin{itemize}
+  \item There are three different kinds of bread, and you have to
+    choose one kind.
+  \item There are four different kinds of cheese. You can choose one,
+    or you can decide not to have any cheese.
+  \item There are four different kinds of meat.  You have to choose
+    one.
+  \item There are three different toppings (lettuce, tomato, and
+    pickles), and you can choose any combination of toppings you want.
+  \end{itemize}
+
+  How many different sandwiches can you make?
+\end{enumerate}
+
+\end{document}
