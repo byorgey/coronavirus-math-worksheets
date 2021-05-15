@@ -1,4 +1,4 @@
-% -*- compile-command: "rubber -d Fibonacci.tex" -*-
+% -*- compile-command: "stack exec --package diagrams-lib --package diagrams-pgf --package diagrams-contrib --package diagrams-builder --package palette -- pdflatex --enable-write18 Fibonacci.tex" -*-
 \documentclass{article}
 
 \usepackage{hyperref}
@@ -29,14 +29,102 @@ The \emph{Fibonacci numbers} are defined by
   F_n &= F_{n-1} + F_{n-2} & (n > 1)
 \end{align*}
 
-The first 17 Fibonacci numbers are therefore \[
-  0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987. \]
+That is, the $0$th Fibonacci number is $0$; the $1$st Fibonacci number
+is $1$; and every number after that is formed by adding the two
+previous numbers.  The first 17 Fibonacci numbers are therefore
+\[ 0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987. \]
 
 \begin{enumerate}
-  \item What is the next Fibonacci number?  \vspace{1in}
-  \item If $F_{28} = 317811$ and $F_{29} = 514229$, what is $F_{27}$?
-  \item Backwards Fibonacci numbers
-  \item Things to count: pavements, Fibonacci trees
-\item\end{enumerate}
+\item What is the next Fibonacci number?
+  \newpage
+
+  \item Fill in the blanks below.
+    \begin{align*}
+      F_0 + F_1 &= \underline{\phantom{XXX}} \\[0.25in]
+      F_0 + F_1 + F_2 &= \underline{\phantom{XXX}} \\[0.25in]
+      F_0 + F_1 + F_2 + F_3 &= \underline{\phantom{XXX}} \\[0.25in]
+      F_0 + F_1 + F_2 + F_3 + F_4 &= \underline{\phantom{XXX}} \\[0.25in]
+    \end{align*}
+  \item Keep going for three more steps. \vspace{2in}
+  \item Do you notice a pattern?
+\newpage
+  \item If $F_{28} = 317811$ and $F_{29} = 514229$, what is $F_{27}$? \vspace{1in}
+  \item In general, if you know $F_n$ and $F_{n-1}$, how can you find
+    $F_{n-2}$? \vspace{1in}
+  \item Using your answer to the previous questions, what should
+    $F_{-1}$ be (that is, the Fibonacci number before $F_0$)?
+    \vspace{1in}
+  \item What about $F_{-2}$? \newpage
+  \item Write down the first ten Fibonacci numbers that should come
+    before $0$, that is, $F_{-1}$ through $F_{-10}$. \vspace{3in}
+  \item What pattern do you notice?
+    \newpage
+    \newcommand{\m}{\mathrm{m}} There is a path that is $1$ meter wide
+    and $n$ meters long, and you want to pave it with stones.  You
+    have two kinds of paving stones: square dark grey stones that are
+    $1\m \times 1\m$ and rectangular light grey stones that are
+    $1\m \times 2\m$.
+
+    \begin{center}
+    \begin{diagram}[width=150]
+import Fibonacci
+
+dia = hsep 2 [s1, s2]
+    \end{diagram}
+    \end{center}
+
+    This means you might have some different
+    choices in terms of how you pave your path.  For example, if the
+    path is $2$ meters long, you have two choices: you could pave it
+    with a single $1 \times 2$ stone, or you could pave it with two
+    $1\times 1$ stones.
+
+    \begin{center}
+    \begin{diagram}[width=200]
+import Fibonacci
+
+dia = (vsep 2 . map centerX $
+  [ path 2 # centerXY # named "path"
+  , hsep 2 [paving [2] # centerX # named "p2", paving [1,1] # centerX # named "p11"]
+  ]
+  )
+  # applyAll
+    [ connectOutside' (with & gap .~ local 0.5) "path" "p2"
+    , connectOutside' (with & gap .~ local 0.5) "path" "p11"
+    ]
+    \end{diagram}
+    \end{center}
+\newpage
+\item If the path is $3$ meters long, how many different ways do you
+  have to pave it?  Draw them here. \vspace{2in}
+
+\item What if the path is $4$ meters long? \newpage
+
+\item What about $5$ meters long? \vspace{3in}
+
+\item Do you notice a pattern?  Use the pattern to predict how many
+  ways there are to pave a path that is $15$ meters long.
+
+  \newpage
+
+Let's say a sequence of bits is \emph{invalid} if it has two $0$ bits
+right next to each other, and \emph{valid} otherwise.  For example,
+$1110100101$ is invalid, since it has $00$ in the middle.  On the
+other hand, $1110110101$ is valid since none of the $0$s are right
+next to each other.
+
+\item Is $110111010$ valid or invalid? \vspace{1in}
+\item What about $11111$? \vspace{1in}
+\item Write down all the valid sequences of two bits.  How many are there? \vspace{2.5in}
+\item Write down all the valid sequences of three bits.  How many are
+  there? \vspace{2in}
+\item Write down all the valid sequences of four bits.  How many are
+  there? \vspace{2in}
+\item Do you notice a pattern?  How many valid sequences of $10$ bits
+  do you think there will be?
+
+  \newpage
+
+\end{enumerate}
 
 \end{document}
