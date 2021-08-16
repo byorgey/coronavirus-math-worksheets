@@ -1,0 +1,134 @@
+% -*- compile-command: "stack exec --package diagrams-lib --package diagrams-pgf --package diagrams-contrib --package diagrams-builder --package palette -- pdflatex --enable-write18 groups.tex" -*-
+\documentclass{article}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath}
+
+\usepackage[outputdir=diagrams, extension=pgf, backend=pgf, input]{diagrams-latex}
+\usepackage{pgf}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Group theory}
+\author{Brent Yorgey, \href{http://www.mathlesstraveled.com}{\texttt{mathlesstraveled.com}} \\ \raisebox{-0.4em}{\includegraphics[width=44px]{../CC-BY.png}} \href{http://creativecommons.org/licenses/by/4.0/}{\texttt{creativecommons.org/licenses/by/4.0/}}}
+
+\begin{document}
+
+\maketitle
+
+\fontsize{16}{20}\selectfont
+
+Let's start by filling out some \emph{operation tables}.  Each table
+will have some items listed across the top and side.  For a given
+operation, your job is to fill each square with the result of that
+operation on the items in the corresponding row and column.  For
+example, if we list $2$, $3$, and $5$ along the side and top, and the
+operation is addition, then the operation table would look like this:
+
+\begin{center}
+\begin{tabular}{l|lll}
+$+$ & 2 & 3 & 5  \\ \hline
+2   & 4 & 5 & 7  \\
+3   & 5 & 6 & 8  \\
+5   & 7 & 8 & 10
+\end{tabular}
+\end{center}
+
+\section*{XOR}
+
+Fill in each spot in the table with the XOR of the two Boolean values.
+
+\begin{center}
+\begin{tabular}{l|ll}
+$\oplus$ & F & T \\ \hline
+F        &   &   \\
+T        &   &
+\end{tabular}
+\end{center}
+
+\section*{Addition}
+
+Fill in the table using addition.
+
+\begin{center}
+\begin{tabular}{l|lll}
+$+$ & 0 & 1 & 2 \\ \hline
+0        &   &   &   \\
+1        &   &   &   \\
+2        &   &   &
+\end{tabular}
+\end{center}
+
+\section*{Addition modulo 3}
+
+Fill in the table using \emph{addition modulo $3$}.  That is, imagine
+that the number line ``wraps around'' back to $0$ when it gets to
+$3$.  If you get an answer bigger than $3$, subtract $3$ from it until
+you are back down under $3$.  For example, $2 +_3 2 = 1$ since $2 + 2
+= 4$ and $4 - 3 = 1$.
+
+\begin{center}
+\begin{tabular}{l|lll}
+$+_3$ & 0 & 1 & 2 \\ \hline
+0        &   &   &   \\
+1        &   &   &   \\
+2        &   &   &
+\end{tabular}
+\end{center}
+
+\section*{Addition modulo 5}
+
+\begin{center}
+\begin{tabular}{l|lllll}
+$+_5$ & 0 & 1 & 2 & 3 & 4 \\ \hline
+0        &   &   &   &   &   \\
+1        &   &   &   &   &   \\
+2        &   &   &   &   &   \\
+3        &   &   &   &   &   \\
+4        &   &   &   &   &  
+\end{tabular}
+\end{center}
+
+\section*{Multiplication modulo 5}
+
+Multiplication modulo $5$ works just like addition modulo $5$, but
+with multiplication: to compute $a \times_5 b$, first multiply $a$ and
+$b$, then keep subtracting $5$ until you get something smaller than
+$5$.  For example, $3 \times_5 4 = 2$ since $3 \times 4 = 12$ and $12
+- 5 - 5 = 2$.
+
+\begin{center}
+\begin{tabular}{l|llll}
+$\times_5$ & 1 & 2 & 3 & 4 \\ \hline
+1          &   &   &   &   \\
+2          &   &   &   &   \\
+3          &   &   &   &   \\
+4          &   &   &   &
+\end{tabular}
+\end{center}
+
+\newpage
+
+Cut out the square on this page.  Ideally, you will also be able to
+see the letter F through the back of the paper.  If you can't see it
+very well you are welcome to draw in a backwards F on the back that
+matches up with the F on the front. \vspace{1in}
+
+\begin{center}
+\begin{diagram}[width=300]
+dia = text "F" # fontSizeL 0.25 <> square 1
+\end{diagram}
+\end{center}
+
+\newpage
+
+Let's list all the different things we can do to the square so
+that it ends up still being a square in the same orientation (that is,
+we want to list all the \emph{symmetries} of the square).  This might
+seem familiar from reading the book \emph{Beautiful Symmetry}.
+
+\end{document}
