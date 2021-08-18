@@ -69,7 +69,23 @@ d4Grid = bars <> rotateBy (1/4) bars
   where
     bars = hsep 1.3 (replicate 9 (vrule (8*1.3))) # centerXY
 
+eqn a b c = hsep 0.5
+  [ elt a
+  , text ";"
+  , elt b
+  , text "="
+  , elt c
+  ]
+  # fontSizeL 0.7
+
 main = mainWith $
   [ ("table", d4Table # frame 0.5)
   , ("d4", d4Display # frame 0.4)
+  , ("dot", elt R0 # lwL 0.05 # frame 0.1)
+  , ("r1", elt R1 # lwL 0.05 # frame 0.1)
+  , ("r1row", displayElt R1 # lwL 0.05 # frame 0.1)
+  , ("f", eff # lwL 0.05 # frame 0.1)
+  , ("r1f", transform (tr R1) eff # lwL 0.05 # frame 0.1)
+  , ("vv", eqn V V R0 # lwL 0.05 # frame 0.1)
+  , ("dh", eqn DR H R3 # lwL 0.05 # frame 0.1)
   ]

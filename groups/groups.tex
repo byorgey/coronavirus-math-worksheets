@@ -13,7 +13,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Group theory}
+\title{Operation tables}
 \author{Brent Yorgey, \href{http://www.mathlesstraveled.com}{\texttt{mathlesstraveled.com}} \\ \raisebox{-0.4em}{\includegraphics[width=44px]{../CC-BY.png}} \href{http://creativecommons.org/licenses/by/4.0/}{\texttt{creativecommons.org/licenses/by/4.0/}}}
 
 \begin{document}
@@ -22,12 +22,13 @@
 
 \fontsize{16}{20}\selectfont
 
-Let's start by filling out some \emph{operation tables}.  Each table
-will have some items listed across the top and side.  For a given
-operation, your job is to fill each square with the result of that
-operation on the items in the corresponding row and column.  For
-example, if we list $2$, $3$, and $5$ along the side and top, and the
-operation is addition, then the operation table would look like this:
+In this activity you're going to fill out some \emph{operation
+  tables}.  Each table will have some items listed across the top and
+side.  For a given operation, your job is to fill each square with the
+result of that operation on the items in the corresponding row and
+column.  For example, if we list $2$, $3$, and $5$ along the side and
+top, and the operation is addition, then the operation table would
+look like this:
 
 \begin{center}
 \begin{tabular}{l|lll}
@@ -93,6 +94,22 @@ $+_5$ & 0 & 1 & 2 & 3 & 4 \\ \hline
 \end{tabular}
 \end{center}
 
+\section*{Max}
+
+Fill in the table using the $\max$ operation, which returns the
+largest of its two inputs.
+
+\begin{center}
+\begin{tabular}{l|lll}
+$\max$ & 0 & 1 & 2 \\ \hline
+0      &   &   &   \\
+1      &   &   &   \\
+2      &   &   &  
+\end{tabular}
+\end{center}
+
+\newpage
+
 \section*{Multiplication modulo 5}
 
 Multiplication modulo $5$ works just like addition modulo $5$, but
@@ -126,18 +143,55 @@ dia = text "F" # fontSizeL 0.25 <> square 1
 
 \newpage
 
+\newcommand{\elt}[1]{\raisebox{-0.25em}{\includegraphics[height=1.2em]{#1.png}}}
+
 Let's list all the different things we can do to the square so that it
 ends up still being a square in the same orientation (that is, we want
 to list all the \emph{symmetries} of the square).  Each icon on the
 next page represents an operation we can do to the square.  For
-example, the dot in the first row means to do nothing; the arrow in
+example, the \elt{dot} in the first row means to do nothing; the \elt{r1} in
 the second row means to rotate the square by 1/4 turn, and so on.  On
 the right of the colon is a graphical depiction of the operation.  If
 you start your square with the letter F facing you and perform the
-operation, it should end up looking like the square at the end.
+operation, it should end up looking like the square at the end.  For
+example, the row for \elt{r1} looks like \elt{r1row}, meaning that if
+you start with \elt{f} and perform the \elt{r1} operation, the square
+ends up looking like \elt{r1f}.  You should physically do all the
+operations with your square to make sure you understand how they work!
 
 \begin{center}
   \includegraphics[width=3in]{d4.png}
 \end{center}
+
+\newpage
+
+We can also \emph{combine} two operations on the square by doing first
+one and then the other.  In the end this will have the same effect as
+if we had done a single operation.  For example, flipping the square
+vertically and then flipping it vertically again will put it back the
+way it started, so
+
+\begin{center}
+  \includegraphics[height=0.5in]{vv.png}
+\end{center}
+
+As another example,
+
+\begin{center}
+  \includegraphics[height=0.5in]{dh.png}
+\end{center}
+
+(Try this with your physical square and make sure you understand it!)
+
+\newpage
+
+Fill in the table below, using the combining operation explained on
+the previous page.
+
+\begin{center}
+  \includegraphics[width=5in]{table.png}
+\end{center}
+
+What patterns do you notice?
 
 \end{document}
